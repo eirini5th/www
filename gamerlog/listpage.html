@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Favorites</title>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js" type="text/javascript"></script>
+
+	<style>
+		html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+		.w3-sidebar {
+		  z-index: 3;
+		  width: 250px;
+		  top: 43px;
+		  bottom: 0;
+		  height: inherit;
+		}
+		<!-- * { -->
+		<!-- box-sizing: border-box; -->
+		<!-- } -->
+
+		.comments123 {
+		  font-family: Arial;
+		  <!--margin: 0 auto; -->/* Center website */
+		  max-width: 800px; /* Max width */
+		  padding: 10px;
+		}
+
+		.heading {
+		  font-size: 25px;
+		  margin-right: 25px;
+		}
+
+		.fa {
+		  font-size: 25px;
+		}
+
+		.checked {
+		  color: crimson;
+		}
+
+		/* Three column layout */
+		.side {
+		  float: left;
+		  width: 15%;
+		  margin-top:10px;
+		}
+
+		.middle {
+		  margin-top:10px;
+		  float: left;
+		  width: 70%;
+		}
+
+		/* Place text to the right */
+		.right {
+		  text-align: right;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+		  content: "";
+		  display: table;
+		  clear: both;
+		}
+
+		/* The bar container */
+		.bar-container {
+		  width: 100%;
+		  background-color: #f1f1f1;
+		  text-align: center;
+		  color: white;
+		}
+
+		/* Individual bars */
+		.bar-5 {width: 60%; height: 18px; background-color: #4CAF50;}
+		.bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
+		.bar-3 {width: 10%; height: 18px; background-color: #00bcd4;}
+		.bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
+		.bar-1 {width: 15%; height: 18px; background-color: #f44336;}
+
+		/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+		@media (max-width: 400px) {
+		  .side, .middle {
+			width: 100%;
+		  }
+		  .right {
+			display: none;
+		  }
+		}
+		
+		<!-----gaaaaaame------->
+		.game-image-container {
+			<!--position: relative;-->
+			max-width: 800px; /* Maximum width */
+			margin: 0 auto; /* Center it */
+		}
+
+		.game-image-container .game-image {
+			position: absolute; /* Position the background text */
+			top: 0; /* At the bottom. Use top:0 to append it to the top */
+			background: rgb(0, 0, 0); /* Fallback color */
+			background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+			color: #f1f1f1; /* Grey text */
+			width: 100%; /* Full width */
+			padding: 20px; /* Some padding */
+			}
+		<!---end of game--->
+		
+		<!------------------------gallery section------------------------------->
+
+		.gallery {
+		  margin: 2px;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  padding: 5px;
+		  float:left;
+		}
+
+		.gallery:hover {
+		  border: 1px solid #777;
+		  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+
+		}
+
+		.gallery img {
+			width:180px;
+			height:200px;
+			object-fit:cover;
+			
+		}
+		
+		
+		<!------------------------comment section------------------------------->
+		.message {margin-bottom: 15px; }
+		.image {float:left; margin-right: 10px; }
+		.user {float:left; font-weight:bold; color:#009; margin-bottom: 5px; }
+		.user-comment { margin-left: 30px;font-style:italic; color:#; }
+
+	</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+   
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white"><img alt="Icon" src="https://i.ibb.co/QCkcwv8/gamepad.png" width=30" height="30"></a>
+     
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Games</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Lists</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Reviews</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">People</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Live streams</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">News</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">About us</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Profile</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">To-Play list</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">My reviews</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">My likes</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Activity</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+	
+	
+	<!----game image----->
+	<div class="game-image-container">
+	  <img src="images/the-last-of-us-banner.jpg" alt="Notebook"
+	  style="width:100%;
+			height:300px;
+			object-fit: cover;
+			object-position: 100% 0;
+			">
+	  <div class="game-image">
+	  <br></br>
+	  <div class="w3-twothird w3-container">
+	  <h1>Favorites</h1> 
+			<p>A list by janesmith97</p>
+	  </div>
+	  </div>
+	</div> 
+
+<!--
+  <div class="w3-row">
+    <div class="w3-container w3-padding-16">
+
+    <div class="gallery">
+	<h2> The Last of Us </h2>
+	<a target="_blank" href="images/the-last-of-us.jpg">
+	  <img src="images/the-last-of-us.jpg" alt="la-noire">
+	</a>
+  </div>  
+  
+    <div class="gallery">
+	<a target="_blank" href="images/assassins-creed-odyssey.jpg">
+	  <img src="images/assassins-creed-odyssey.jpg" alt="red-dead-redemption-2" width="600" height="400">
+	</a>
+  </div>
+
+  <div class="gallery">
+	<a target="_blank" href="images/Beyond_Two_Souls.jpg">
+	  <img src="images/Beyond_Two_Souls.jpg" alt="Death_Stranding" width="600" height="400">
+	</a>
+  </div>
+
+  <div class="gallery">
+	<a target="_blank" href="images/Bioshock_Infinite.jpg">
+	  <img src="images/Bioshock_Infinite.jpg" alt="Cyberpunk-2077" width="600" height="400">
+	</a>
+  </div> 
+  
+  </div>
+</div>  
+-->
+
+  <div class="w3-row">
+    <div class="w3-quarter w3-container w3-padding-16">
+    
+		<h3 class="w3-text-teal">
+		
+			<div class="gallery">
+			<a target="_blank" href="images/the-last-of-us.jpg">
+			  <img src="images/the-last-of-us.jpg" alt="la-noire">
+			</a>
+			</div>	
+		
+		The Last of Us
+		</h3>
+	
+	  
+  </div>    </div>
+
+  <div class="w3-row">
+    <div class="w3-quarter w3-container w3-padding-16">
+    
+		<h3 class="w3-text-teal">
+		
+			<div class="gallery">
+			<a target="_blank" href="images/assassins-creed-odyssey.jpg">
+			  <img src="images/assassins-creed-odyssey.jpg" alt="la-noire">
+			</a>
+			</div>	
+		
+		Assassins Creed: Odyssey
+		</h3>
+	
+	  
+  </div>    </div>  
+
+  <div class="w3-row">
+    <div class="w3-quarter w3-container w3-padding-16">
+    
+		<h3 class="w3-text-teal">
+		
+			<div class="gallery">
+			<a target="_blank" href="images/Beyond_Two_Souls.jpg">
+			  <img src="images/Beyond_Two_Souls.jpg" alt="la-noire">
+			</a>
+			</div>	
+		
+		Beyond: Two Souls
+		</h3>
+	
+	  
+  </div>    </div>  
+
+  <div class="w3-row">
+    <div class="w3-quarter w3-container w3-padding-16">
+    
+		<h3 class="w3-text-teal">
+		
+			<div class="gallery">
+			<a target="_blank" href="images/Bioshock_Infinite.jpg">
+			  <img src="images/Bioshock_Infinite.jpg" alt="la-noire">
+			</a>
+			</div>	
+		
+		Bioshock Infinite
+		</h3>
+	
+	  
+  </div>    </div>    
+  
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="#">1</a>
+      <a class="w3-button w3-hover-black" href="#">2</a>
+      <a class="w3-button w3-hover-black" href="#">3</a>
+      <a class="w3-button w3-hover-black" href="#">4</a>
+      <a class="w3-button w3-hover-black" href="#">5</a>
+      <a class="w3-button w3-hover-black" href="#">»</a>
+    </div>
+  </div>
+
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+       <!--   <img alt="Icon" src="https://gamesrevisiteddotcom.files.wordpress.com/2014/05/banner31.png">-->
+    </div>
+
+    <div class="w3-container w3-theme-l1">
+     <!--  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>-->
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>

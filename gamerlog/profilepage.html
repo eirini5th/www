@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>My profile</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+
+div.gallery {
+  margin: 2px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  float: left;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+
+}
+
+div.gallery img {
+	width:180px;
+	height:200px;
+	object-fit:cover;
+}
+
+<!------------------------comment section------------------------------->
+.message {margin-bottom: 15px; }
+.image {float:left; margin-right: 10px; }
+.user {float:left; font-weight:bold; color:#009; margin-bottom: 5px; }
+.user-comment { margin-left: 30px;font-style:italic; color:#; }
+.checked {
+	color: crimson;
+}
+</style>
+
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+   
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white"><img alt="Icon" src="https://i.ibb.co/QCkcwv8/gamepad.png" width=30" height="30"></a>
+     
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Games</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Lists</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Reviews</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">People</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Live streams</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">News</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">About us</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Profile</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">To-Play list</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">My reviews</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">My likes</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Activity</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+	<div class="w3-quarter w3-container">
+      <p><img src="profilepic.jpg" alt="my profile pic"
+	   style="
+		float:right;
+		width:150px;
+		height:150px;
+		object-fit:cover;
+		border-radius:50%;">
+	  </p>
+	</div>
+  
+    <div class="w3-threequarter w3-container w3-padding-32">
+      <h1 class="w3-text-deep-orange">janesmith97</h1>
+	  <h6 class="w3-text-grey"> Joined July 5, 2018 </h6>
+	</div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h2 class="w3-text-teal">To-Play List</h2>
+	</div>
+  </div>
+
+  <div class="gallery">
+	<a target="_blank" href="images/red-dead-redemption-2.jpg">
+	  <img src="images/red-dead-redemption-2.jpg" alt="red-dead-redemption-2" width="600" height="400">
+	</a>
+  </div>
+
+  <div class="gallery">
+	<a target="_blank" href="images/Death_Stranding.jpg">
+	  <img src="images/Death_Stranding.jpg" alt="Death_Stranding" width="600" height="400">
+	</a>
+  </div>
+
+  <div class="gallery">
+	<a target="_blank" href="images/Cyberpunk-2077.jpg">
+	  <img src="images/Cyberpunk-2077.jpg" alt="Cyberpunk-2077" width="600" height="400">
+	</a>
+  </div> 
+  
+  <div class="gallery">
+	<a target="_blank" href="images/la-noire.jpg">
+	  <img src="images/la-noire.jpg" alt="la-noire" width="600" height="400">
+	</a>
+  </div>  
+  
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container w3-padding-16">
+      <h2 class="w3-text-teal">Favorites</h2>
+	</div>
+  </div>
+  
+    <div class="gallery">
+	<a target="_blank" href="images/assassins-creed-odyssey.jpg">
+	  <img src="images/assassins-creed-odyssey.jpg" alt="red-dead-redemption-2" width="600" height="400">
+	</a>
+  </div>
+
+  <div class="gallery">
+	<a target="_blank" href="images/Beyond_Two_Souls.jpg">
+	  <img src="images/Beyond_Two_Souls.jpg" alt="Death_Stranding" width="600" height="400">
+	</a>
+  </div>
+
+  <div class="gallery">
+	<a target="_blank" href="images/Bioshock_Infinite.jpg">
+	  <img src="images/Bioshock_Infinite.jpg" alt="Cyberpunk-2077" width="600" height="400">
+	</a>
+  </div> 
+  
+  <div class="gallery">
+	<a target="_blank" href="images/the-last-of-us.jpg">
+	  <img src="images/the-last-of-us.jpg" alt="la-noire" width="600" height="400">
+	</a>
+  </div>  
+  
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container w3-padding-16">
+	<br></br>
+		<h2 class="w3-text-teal">My Reviews</h2>
+			<div class="message">
+			<h3>Rachet & Clank (PS4)</h3>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<div style="clear:both;"></div>
+				<div class="user-comment"><p>It's not taxing or provocative, it will leave you neither upset nor elated; it 
+				simply wants to give you a good time. Sometimes that's enough.  [Nov 19, 2019]</p></div>
+			</div>
+
+			<div class="message">
+			<h3>Beyond Two Souls (PS4)</h3>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star"></span>
+				<div style="clear:both;"></div>
+				<div class="user-comment"><p>Just finished it now. A good game with interesting chapters in the storyline. 
+				Have to say I'm disappointed with the ending because I thought there would have been another one or two levels 
+				because of the seeing into the future bit. I think it's obviously not as good as Detroit but I would say it's an 
+				improvement on heavy rain.  [Nov 3, 2019]</p></div>
+			</div>
+			
+			<div class="message">
+			<h3>Uncharted 4: A thief's end (PS4)</h3>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span>
+				<div style="clear:both;"></div>
+				<div class="user-comment"><p>Uncharted 4 is an absolute masterpiece. This is a game that hooked me from the beginning 
+				and didn't let go until the final frame.The main idea behind these kinds of games, I'm guessing, is to make it feel like 
+				you're watching a very good Hollywood adventure film, but additionally allowing the viewer to fully participate in the story. 
+				The thing about Uncharted 4 is that, it holds your attention so well that you can't just play it once for a little bit and stop 
+				for a few days. You have to complete this game once you start, and play it a little bit sequentially each day. Don't worry though. 
+				This is not a game that would overstay it's welcome for most people. It took me around 13 and 1/2 hours to beat it.  [Oct 17, 2019]</p></div>
+			</div>
+			
+	</div>
+</div>
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="#">1</a>
+      <a class="w3-button w3-hover-black" href="#">2</a>
+      <a class="w3-button w3-hover-black" href="#">3</a>
+      <a class="w3-button w3-hover-black" href="#">4</a>
+      <a class="w3-button w3-hover-black" href="#">5</a>
+      <a class="w3-button w3-hover-black" href="#">»</a>
+    </div>
+  </div>
+
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+       <!--   <img alt="Icon" src="https://gamesrevisiteddotcom.files.wordpress.com/2014/05/banner31.png">-->
+    </div>
+
+    <div class="w3-container w3-theme-l1">
+     <!--  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>-->
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>
