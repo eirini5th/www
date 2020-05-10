@@ -24,6 +24,30 @@ public class UserDao {
             e.printStackTrace();
         }
     }
+    
+    public int giveUserID(String username) {
+        Transaction transaction = null;
+        User user = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // start a transaction
+            transaction = session.beginTransaction();
+            // get an user object
+            user = (User) session.createQuery("FROM User U WHERE U.username = :username").setParameter("username", username)
+                .uniqueResult();
+
+            if (user != null)
+            	return user.getID();
+            
+            // commit transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
     public boolean validate(String username, String password) {
 

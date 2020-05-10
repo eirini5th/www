@@ -28,6 +28,10 @@ public class User implements Serializable {
     private String profilepic;
 
 
+    public int getID() {
+    	return id;
+    }
+    
     public String getUsername() {
         return username;
     }

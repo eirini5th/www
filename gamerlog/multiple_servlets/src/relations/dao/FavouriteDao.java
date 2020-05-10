@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import login.model.User;
 import relations.model.Favourite;
 import relations.util.FavouriteHibernateUtil;
 
@@ -115,7 +116,7 @@ public class FavouriteDao {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Favourite> getAllFavourite() {
+	public List<Favourite> getAllFavourite(int userID) {
 
 		Transaction transaction = null;
 		List<Favourite> listOfFavourite = null;
@@ -124,8 +125,8 @@ public class FavouriteDao {
 			transaction = session.beginTransaction();
 			// get an favourite object
 			
-			listOfFavourite = session.createQuery("from Favourite").getResultList();
-			
+			listOfFavourite = session.createQuery("from Favourite f where f.userID = :userID").setParameter("userID", userID).getResultList();
+
 			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {

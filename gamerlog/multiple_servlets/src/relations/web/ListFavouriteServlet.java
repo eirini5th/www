@@ -46,7 +46,8 @@ public class ListFavouriteServlet extends HttpServlet {
 
 	private void listFavourite(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		List<Favourite> listFavourite = favouriteDao.getAllFavourite();
+		int userID = Integer.parseInt(request.getParameter("id"));
+		List<Favourite> listFavourite = favouriteDao.getAllFavourite(userID);
 		request.setAttribute("listFavourite", listFavourite);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("favourite-list.jsp");
 		dispatcher.forward(request, response);

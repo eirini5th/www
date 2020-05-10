@@ -41,9 +41,11 @@ public class LoginController extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
+
         if (loginDao.validate(username, password)) {
 //            RequestDispatcher dispatcher = request.getRequestDispatcher("login-success.jsp");
-        	RequestDispatcher dispatcher = request.getRequestDispatcher("/list");
+        	int userID = loginDao.giveUserID(username);
+        	RequestDispatcher dispatcher = request.getRequestDispatcher("listfavourites?id="+userID);
             dispatcher.forward(request, response);
         } else {
 //            throw new Exception("Login not successful..");
