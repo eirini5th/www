@@ -9,16 +9,18 @@
 	<center>
 		<h1>Game Management</h1>
 		<h2>
-			<a href="new">Add New Game</a> &nbsp;&nbsp;&nbsp; <a href="list">List All Games</a>
+			<a href="newgame">Add New Game</a>
+			&nbsp;&nbsp;&nbsp;
+			<a href="listgame">List All Games</a>
 
 		</h2>
 	</center>
 	<div align="center">
 		<c:if test="${game != null}">
-			<form action="update" method="post">
+			<form action="updategame" method="post">
 		</c:if>
 		<c:if test="${game == null}">
-			<form action="insert" method="post">
+			<form action="insertgame" method="post">
 		</c:if>
 		
 		<table border="1" cellpadding="5">

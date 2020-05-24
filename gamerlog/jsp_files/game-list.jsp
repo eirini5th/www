@@ -9,9 +9,9 @@
 	<center>
 		<h1>Game Management</h1>
         <h2>
-        	<a href="./new">Add New Game</a>
+        	<a href="newgame">Add New Game</a>
         	&nbsp;&nbsp;&nbsp;
-        	<a href="./list">List All Games</a>
+        	<a href="listgames">List All Games</a>
         	
         </h2>
 	</center>
@@ -40,11 +40,11 @@
                     <td><img src="<c:out value="${game.image}" />" ></td>
                     
                     <td>
-                    	<a href="edit?id=<c:out value='${game.id}' />">Edit</a>
+                    	<a href="editgame?id=<c:out value='${game.id}' />">Edit</a>
                     	&nbsp;&nbsp;&nbsp;&nbsp;
-                    	<a href="delete?id=<c:out value='${game.id}' />">Delete</a>
+                    	<a href="deletegame?id=<c:out value='${game.id}' />">Delete</a>
                     	&nbsp;&nbsp;&nbsp;&nbsp;
-                    	<a href="delete?id=<c:out value='${game.id}' />">Delete</a>                     	
+                    	<a href="deletegame?id=<c:out value='${game.id}' />">Delete</a>                     	
                     </td>
                 </tr>
             </c:forEach>
