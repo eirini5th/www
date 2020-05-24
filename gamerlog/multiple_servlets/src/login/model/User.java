@@ -8,6 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+//manytomany stuff
+import javax.persistence.FetchType;
+import javax.persistence.CascadeType;
+
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 
 @Entity
 @Table(name = "users")
@@ -26,8 +33,7 @@ public class User implements Serializable {
 
     @Column(name = "profilepic")
     private String profilepic;
-
-
+    
     public int getID() {
     	return id;
     }

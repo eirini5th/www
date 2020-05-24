@@ -70,10 +70,10 @@ public class FavouriteServlet extends HttpServlet {
 
 	private void listFavourite(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		List<Favourite> listFavourite = favouriteDao.getAllFavourite();
-		request.setAttribute("listFavourite", listFavourite);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("favourite-list.jsp");
-		dispatcher.forward(request, response);
+//		List<Favourite> listFavourite = favouriteDao.getAllFavourite();
+//		request.setAttribute("listFavourite", listFavourite);
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("favourite-list.jsp");
+//		dispatcher.forward(request, response);
 	}
 
 	private void showNewForm(HttpServletRequest request, HttpServletResponse response)

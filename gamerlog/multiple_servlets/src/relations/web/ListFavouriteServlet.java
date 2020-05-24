@@ -1,8 +1,11 @@
 package relations.web;
 
+import games.model.Game;
+import games.dao.GameDao;
+
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,8 +51,30 @@ public class ListFavouriteServlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 		int userID = Integer.parseInt(request.getParameter("id"));
 		List<Favourite> listFavourite = favouriteDao.getAllFavourite(userID);
-		request.setAttribute("listFavourite", listFavourite);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("favourite-list.jsp");
+		// PUT HERE getGameFromList
+		List<Game> favouriteGames = new ArrayList<Game>();
+		GameDao gameDao = new GameDao();
+		Iterator<Favourite> faveIt = listFavourite.iterator();
+		while (faveIt.hasNext()) {
+			Favourite f = faveIt.next();
+			Game g = gameDao.getGameFromList(f.getGameID());
+			favouriteGames.add(g);
+		}
+		
+		System.out.println("TTTTT");
+		Iterator<Game> gameIt = favouriteGames.iterator();
+		while (gameIt.hasNext()) {
+			System.out.println((gameIt.next()).getTitle());
+		}
+		
+		//display list of games instead of list of relations
+		
+		request.setAttribute("listGame", favouriteGames);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("game-list.jsp");
 		dispatcher.forward(request, response);
+		
+//		request.setAttribute("listFavourite", listFavourite);
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("favourite-list.jsp");
+//		dispatcher.forward(request, response);
 	}
 }
