@@ -9,15 +9,6 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-img {
-  border-radius: 8px;
-    display: block;
-	margin-left: auto;
-	margin-right: auto;
-		object-fit: cover;
-	
-}
-
 .topnav {
 	overflow: hidden;
 	background-color: #333;
@@ -92,7 +83,7 @@ img {
 		<div class="signoutbtn">
 			<a href="#about">${loggedUsername}</a>
 <!-- 		<a href="homepageServlet">BROWSE</a>											 -->
-			<a href="homepageServlet?id=<c:out value='${loggedID}' />">BROWSE</a>
+			<a href="homepageServlet?id=<c:out value='${loggedID}' />"> BROWSE</a>
 			<a href="displayuserlist?id=<c:out value='${loggedID}' />&listname=favourites">Favourites</a>
 			<a href="displayuserlist?id=<c:out value='${loggedID}' />&listname=wanttoplay">Want To Play</a>
 			<a href="displayuserlist?id=<c:out value='${loggedID}' />&listname=currplaying">Currently Playing</a>
@@ -110,7 +101,7 @@ img {
 			<caption>
 				<h2>List of Games</h2>
 			</caption>
-<!-- 		<tr>
+			<tr>
 				<th>ID</th>
 				<th>Title</th>
 				<th>Year Released</th>
@@ -121,24 +112,17 @@ img {
 
 				<th>Add to</th>
 			</tr>
- -->
 			<c:forEach var="game" items="${listGame}">
 				<tr>
+					<td><c:out value="${game.id}" /></td>
+					<td><c:out value="${game.title}" /></td>
+					<td><c:out value="${game.yearReleased}" /></td>
+					<td><c:out value="${game.developers}" /></td>
+					<td><c:out value="${game.publishers}" /></td>
+					<td><c:out value="${game.genres}" /></td>
 					<td><img src="<c:out value="${game.image}" />"></td>
-					<td>
-						<c:out value="${game.title}" />
-						<br>
-						<c:out value="${game.yearReleased}" />
-					</td>
-					<td>
-						Developers<br><c:out value="${game.developers}" /><br>
-						Publishers<br><c:out value="${game.publishers}" /><br>
-						Genres<br><c:out value="${game.genres}" /><br>
-					</td>
 
-					<td>Add to List
-						<br>
-						<a href="newlistentry?user=<c:out value='${loggedID}' />&game=<c:out value='${game.id}' />&listname=favourites">Favourites</a>
+					<td><a href="newlistentry?user=<c:out value='${loggedID}' />&game=<c:out value='${game.id}' />&listname=favourites">Favourites</a>
 						<br>
 						<a href="newlistentry?user=<c:out value='${loggedID}' />&game=<c:out value='${game.id}' />&listname=wanttoplay">Want to Play</a>
 						<br>
