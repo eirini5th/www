@@ -1,7 +1,6 @@
 package login.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,15 +39,6 @@ public class LoginController extends HttpServlet {
     throws Exception {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
-        PrintWriter writer = response.getWriter();
-        String htmlResponse = "<html>";
-        htmlResponse += "<h2>Your username is: " + username + "<br/>";
-		htmlResponse += "Your password is: " + password + "</h2>";
-		htmlResponse += "</html>";
-
-		// return response
-		writer.println(htmlResponse);
 
         if (loginDao.validate(username, password)) {
 //            RequestDispatcher dispatcher = request.getRequestDispatcher("login-success.jsp");

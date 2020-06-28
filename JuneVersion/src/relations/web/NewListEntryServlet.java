@@ -4,9 +4,11 @@ import java.io.IOException;
 //import java.sql.SQLException;
 //import java.util.List;
 import java.sql.SQLException;
+import java.util.Iterator;
 //import java.util.ArrayList;
 //import java.util.Iterator;
 //import java.util.List;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -57,12 +59,40 @@ public class NewListEntryServlet extends HttpServlet {
 		int userID = Integer.parseInt(request.getParameter("user"));
 		int gameID = Integer.parseInt(request.getParameter("game"));
 		String listname = request.getParameter("listname");
+		String path = request.getServletPath();
+		request.setAttribute("loggedID", userID);
 		
+		if (listname.equals("favourites")) {
+			ListEntry newListEntry = new ListEntry(userID, gameID, "hasplayed");
+			listEntryDao.saveListEntry(newListEntry);
+		}
+		if (listname.equals("hasplayed")) {
+			//if added to hasplayed, remove from wanttoplay & currently playing
+			List<ListEntry> userList = listEntryDao.getSpecificEntries(userID, gameID, "wanttoplay");
+			Iterator<ListEntry> listIt = userList.iterator();
+			while (listIt.hasNext()) {
+				listEntryDao.deleteListEntryObject(listIt.next());
+			}
+			userList = listEntryDao.getSpecificEntries(userID, gameID, "currplaying");
+			listIt = userList.iterator();
+			while (listIt.hasNext()) {
+				listEntryDao.deleteListEntryObject(listIt.next());
+			}
+		}
+
 		ListEntry newListEntry = new ListEntry(userID, gameID, listname);
 		listEntryDao.saveListEntry(newListEntry);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("homepage.jsp");
-		dispatcher.forward(request, response);
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("homepage.jsp");
+		if (path.equals("/newlistentry")) {
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("homepageServlet?id="+userID);
+//			dispatcher.forward(request, response);
+			response.sendRedirect("homepageServlet?id="+userID);
 
+		}
+		else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("displayuserlist?id="+userID+"&listname="+listname);
+			dispatcher.forward(request, response);
+		}
 	}
 
 }

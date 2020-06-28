@@ -80,6 +80,29 @@ public class ListEntryDao {
 			e.printStackTrace();
 		}
 	}
+	
+	public void deleteListEntryObject(ListEntry listEntry) {
+
+		Transaction transaction = null;
+		try (Session session = ListEntryHibernateUtil.getSessionFactory().openSession()) {
+			// start a transaction
+			transaction = session.beginTransaction();
+
+			// Delete a listEntry object
+			if (listEntry != null) {
+				session.delete(listEntry);
+				System.out.println("listEntry is deleted");
+			}
+
+			// commit transaction
+			transaction.commit();
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * Get ListEntry By ID
@@ -123,6 +146,32 @@ public class ListEntryDao {
 			String query = "from userlists f where f.userID = :userID and f.name = :listname";
 			listOfListEntry = session.createQuery(query).setParameter("userID", userID).setParameter("listname", listname).getResultList();
 			System.out.println("PRINTING LIST 2");
+			// commit transaction
+			transaction.commit();
+		} catch (Exception e) {
+			if (transaction != null) {
+				System.out.println("transaction not null 1");
+				transaction.rollback();
+				System.out.println("transaction not null 2");
+			}
+			e.printStackTrace();
+		}
+		return listOfListEntry;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<ListEntry> getSpecificEntries(int userID, int gameID, String listname) {
+
+		Transaction transaction = null;
+		List<ListEntry> listOfListEntry = null;
+		try (Session session = ListEntryHibernateUtil.getSessionFactory().openSession()) {
+			// start a transaction
+			transaction = session.beginTransaction();
+			
+			// get an listEntry object
+			String query = "from userlists f where f.userID = :userID and f.name = :listname and f.gameID =:gameID";
+			listOfListEntry = session.createQuery(query).setParameter("gameID", gameID).setParameter("userID", userID).setParameter("listname", listname).getResultList();
+
 			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {

@@ -50,14 +50,20 @@ public class HomepageServlet extends HttpServlet {
 	private void listGame(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		UserDao userDao = new UserDao();
+		
+		// homepage only needs userID
+		// get user id (first from login then from the rest of the pages)
 		int userID = Integer.parseInt(request.getParameter("id"));
 		User loggedUser = userDao.giveUserFromID(userID);
 		String loggedUsername = loggedUser.getUsername();
+		
+		// set username & id to use when "calling" pages with game lists
 		request.setAttribute("loggedUsername", loggedUsername);
 		request.setAttribute("loggedID", userID);
 		List<Game> listGame = gameDao.getAllGame();
 		request.setAttribute("listGame", listGame);
 //		System.out.println("LLLLLLLLL");
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("homepage.jsp");
 		dispatcher.forward(request, response);
 	}

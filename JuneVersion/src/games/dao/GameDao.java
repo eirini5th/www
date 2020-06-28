@@ -33,6 +33,8 @@ public class GameDao {
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {
+				e.printStackTrace();
+
 				transaction.rollback();
 			}
 			e.printStackTrace();

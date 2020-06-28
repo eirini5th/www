@@ -55,6 +55,6 @@ public class InsertGameServlet extends HttpServlet {
 		String image = request.getParameter("image");
 		Game newGame = new Game(title, yearReleased, developers, publishers, genres, image);
 		gameDao.saveGame(newGame);
-		response.sendRedirect("listgames");
+		response.sendRedirect("game-list.jsp");
 	}
 }

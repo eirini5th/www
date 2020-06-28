@@ -47,9 +47,10 @@ public class ListGameServlet extends HttpServlet {
 
 	private void listGame(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
 		List<Game> listGame = gameDao.getAllGame();
 		request.setAttribute("listGame", listGame);
-		System.out.println("LLLLLLLLL");
+//		System.out.println("LLLLLLLLL");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("homepage.jsp");
 		dispatcher.forward(request, response);
 	}
