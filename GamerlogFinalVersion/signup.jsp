@@ -18,6 +18,17 @@ body {
 	background-color: #4d4d4d;
 	color: #d9d9d9;
 }
+
+h1 {
+	margin-top: 60px;
+	color: #4CAF50;
+	text-align:center;
+}
+
+h2 {
+	text-align:center;
+}
+
 </style>
 <body>
 		<div class="container col-md-8 col-md-offset-3" style="overflow: auto">
@@ -29,13 +40,13 @@ body {
 				<h3>Sign up</h3>
 
 				<div class="form-group">
-					<label for="uname">Username:</label> <input type="text"
+					<input type="text"
 						class="form-control" id="username" placeholder="Username"
 						name="username" required>
 				</div>
 
 				<div class="form-group">
-					<label for="uname">Password:</label> <input type="password"
+					<input type="password"
 						class="form-control" id="password" placeholder="Password"
 						name="password" required>
 				</div>

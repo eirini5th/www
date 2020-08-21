@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<link href="css/homepagestyle.css" rel="stylesheet" type="text/css"> 
+<link href="css/gamerlogstyle.css" rel="stylesheet" type="text/css"> 
 <title>Gamerlog - Browse Games</title>
 </head>
 <body>
