@@ -10,11 +10,6 @@ import org.hibernate.service.ServiceRegistry;
 
 import games.model.Game;
 
-/**
- * Java based configuration
- * @author ramesh Fadatare
- *
- */
 public class HibernateUtil {
 	private static SessionFactory sessionFactory;
 

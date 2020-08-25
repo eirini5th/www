@@ -41,16 +41,10 @@ public class LoginController extends HttpServlet {
         String password = request.getParameter("password");
 
         if (loginDao.validate(username, password)) {
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("login-success.jsp");
         	int userID = loginDao.giveUserID(username);
-//        	RequestDispatcher dispatcher = request.getRequestDispatcher("listfavourites?id="+userID);
-        	RequestDispatcher dispatcher = request.getRequestDispatcher("homepageServlet?id="+userID);
-        	
-        	//ADD: GIVE USERNAME/USER OBJECT TO HOMEPAGESERVLET
-        	
+        	RequestDispatcher dispatcher = request.getRequestDispatcher("homepageServlet?id="+userID);        	
             dispatcher.forward(request, response);
         } else {
-//            throw new Exception("Login not successful..");
             RequestDispatcher dispatcher = request.getRequestDispatcher("login-failed.jsp");
             dispatcher.forward(request, response);
         }

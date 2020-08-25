@@ -9,12 +9,7 @@ import games.model.Game;
 import games.util.HibernateUtil;
 import login.model.User;
 
-/**
- * CRUD database operations
- * 
- * @author Ramesh Fadatare
- *
- */
+
 public class GameDao {
 
 	/**

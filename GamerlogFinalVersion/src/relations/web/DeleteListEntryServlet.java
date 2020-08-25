@@ -51,8 +51,6 @@ public class DeleteListEntryServlet extends HttpServlet {
 		String listname = request.getParameter("listname");
 		
 		request.setAttribute("loggedID", userID);
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("homepage.jsp");
-//		dispatcher.forward(request, response);
 		
 		if (listname.equals("hasplayed")) {
 			//remove from favourites
@@ -62,7 +60,6 @@ public class DeleteListEntryServlet extends HttpServlet {
 			while (listIt.hasNext()) {
 				listEntryDao.deleteListEntryObject(listIt.next());
 			}
-			
 		}
 		
 		//find entry id from user, game, listname combo
@@ -78,26 +75,8 @@ public class DeleteListEntryServlet extends HttpServlet {
 		String loggedUsername = loggedUser.getUsername();
 		request.setAttribute("loggedUsername", loggedUsername);
 		request.setAttribute("loggedID", userID);
-		// REPLACE WITH A SWITCH CASE FOR EACH LIST NAME
-//		String attr = new String();
-//		switch (listname) {
-//			case "favourites":
-//				attr = "Favourites";
-//				break;
-//			case "wanttoplay":
-//				attr = "Want To Play";
-//				break;
-//			case "currplaying":
-//				attr = "Currently Playing";
-//				break;
-//			case "hasplayed":
-//				attr = "Has Played";
-//				break;
-//		}
 		request.setAttribute("listname", listname);
-//		
-//		response.sendRedirect("displayuserlist"); //former listfavourites
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("homepage.jsp");
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("displayuserlist?id="+userID+"&listname="+listname);
 
 		dispatcher.forward(request, response);

@@ -55,7 +55,7 @@ h2 {
 
 			</form>
 			<h4>Already a member?</h4>
-			<form action="http://localhost:8080/gamerlog_project/login.jsp">
+			<form action="login.jsp">
 				<input type="submit" class="btn btn-primary" value="Login" />
 			</form>
 

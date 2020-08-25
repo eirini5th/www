@@ -69,14 +69,6 @@ public class DisplayUserListServlet extends HttpServlet {
 			gamesNum++;
 		}
 		
-		Iterator<Game> gameIt = listEntryGames.iterator();
-		while (gameIt.hasNext()) {
-			System.out.println((gameIt.next()).getTitle());
-		}
-		
-		//try to give id back to homepage.jsp
-//		request.setAttribute(userID, "loggedID");
-		
 		// set username & id to use when "calling" pages with game lists
 		request.setAttribute("loggedUsername", loggedUsername);
 		request.setAttribute("loggedID", userID);

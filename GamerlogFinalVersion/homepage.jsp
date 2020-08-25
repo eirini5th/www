@@ -21,7 +21,7 @@
 			<a href="displayuserlist?id=<c:out value='${loggedID}' />&listname=wanttoplay">Want To Play</a>
 			<a href="displayuserlist?id=<c:out value='${loggedID}' />&listname=currplaying">Currently Playing</a>
 			<a href="displayuserlist?id=<c:out value='${loggedID}' />&listname=hasplayed">Has Played</a>
-			<a href="http://localhost:8080/gamerlog_project/login.jsp">SIGN OUT</a>
+			<a href="login.jsp">SIGN OUT</a>
 		</div>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			<i class="fa fa-bars"></i>

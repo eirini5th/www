@@ -7,12 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * Favourite.java This is a model class represents a Favourite entity
- * 
- * @author Ramesh Fadatare
- *
- */
 
 @Entity (name = "userlists")
 @Table(name = "userlists")

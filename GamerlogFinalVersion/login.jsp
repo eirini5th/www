@@ -59,7 +59,7 @@ h2 {
 		</form>
 
 		<h4>Are you new?</h4>
-		<form action="http://localhost:8080/gamerlog_project/signup.jsp">
+		<form action="signup.jsp">
 			<input type="submit" class="btn btn-primary" value="Sign up" />
 		</form>
 

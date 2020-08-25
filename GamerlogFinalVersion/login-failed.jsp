@@ -13,7 +13,24 @@ crossorigin="anonymous">
 <body>
 
 <style>
-    h3 { color: tomato; }
+body {
+	margin: 0;
+	font-family: Microsoft Sans Serif;
+	background-color: #4d4d4d;
+	color: #d9d9d9;
+}
+
+h1 {
+	margin-top: 60px;
+	color: #4CAF50;
+	text-align:center;
+}
+
+h2 {
+	text-align:center;
+}
+
+h3 { color: tomato; }
 </style>
 
 <div class="container col-md-8 col-md-offset-3" style="overflow: auto">
@@ -26,13 +43,13 @@ crossorigin="anonymous">
   <form action="<%=request.getContextPath()%>/login" method="post">
 
    <div class="form-group">
-    <label for="uname">Username:</label> <input type="text"
+    <input type="text"
      class="form-control" id="username" placeholder="Username"
      name="username" required>
    </div>
 
    <div class="form-group">
-    <label for="uname">Password:</label> <input type="password"
+    <input type="password"
      class="form-control" id="password" placeholder="Password"
      name="password" required>
    </div>
@@ -42,7 +59,7 @@ crossorigin="anonymous">
   </form>
   
   <h4>Are you new?</h4>
-  <form action="http://localhost:8080/gamerlog/signup.jsp">
+  <form action="signup.jsp">
     <input type="submit" class="btn btn-primary" value="Sign up" />
 </form>
   

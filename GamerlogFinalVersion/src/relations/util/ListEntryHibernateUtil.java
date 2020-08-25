@@ -10,11 +10,7 @@ import org.hibernate.service.ServiceRegistry;
 
 import relations.model.ListEntry;
 
-/**
- * Java based configuration
- * @author ramesh Fadatare
- *
- */
+
 public class ListEntryHibernateUtil {
 	private static SessionFactory sessionFactory;
 
